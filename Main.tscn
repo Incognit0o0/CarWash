@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://74adi7sp5eut"]
+
+[ext_resource type="Script" uid="uid://eixmi81fkx43" path="res://math_popup.gd" id="1_r0du0"]
+[ext_resource type="Script" uid="uid://wxty8rh7jgv1" path="res://math_challenge.gd" id="2_cm0pq"]
+[ext_resource type="Script" uid="uid://dfao5w46nth0e" path="res://game_logic.gd" id="3_fos0i"]
+
+[node name="Main" type="Node2D" unique_id=314320050]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1821413253]
+
+[node name="HUD" type="Control" parent="UI" unique_id=842899971]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MathPopup" type="Control" parent="UI" unique_id=1689120]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r0du0")
+
+[node name="MathChallenge" type="Node" parent="UI/MathPopup" unique_id=2050739605]
+script = ExtResource("2_cm0pq")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MathPopup" unique_id=1035374119]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MathPopup/MarginContainer" unique_id=1271910178]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MathPopup/MarginContainer/VBoxContainer" unique_id=1786291645]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/MathPopup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1841259053]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Проверить"
+
+[node name="Label" type="Label" parent="UI/MathPopup/MarginContainer/VBoxContainer" unique_id=966860504]
+layout_mode = 2
+text = "5 + 3 = ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="UI/MathPopup/MarginContainer/VBoxContainer" unique_id=842179190]
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+placeholder_text = "Введите ответ..."
+alignment = 1
+
+[node name="GameLogic" type="Node" parent="." unique_id=38109567]
+script = ExtResource("3_fos0i")
