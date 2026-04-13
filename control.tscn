@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c5q3gjrdciiqm"]
+
+[ext_resource type="Texture2D" uid="uid://bvbtfd22lyar1" path="res://фон.png" id="1_0fbet"]
+[ext_resource type="FontFile" uid="uid://3n6xr0pqgu1q" path="res://ClimateCrisis-Regular-VariableFont_YEAR.ttf" id="2_62e2m"]
+
+[node name="Control" type="Control" unique_id=2060132432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="фон" type="TextureRect" parent="." unique_id=441721935]
+layout_mode = 0
+offset_left = 6.1035156e-05
+offset_top = -1.999939
+offset_right = 1647.1426
+offset_bottom = 920.85706
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_0fbet")
+expand_mode = 1
+
+[node name="Название игры" type="Label" parent="." unique_id=1759121018]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 59.0
+offset_right = 771.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 0.48235294, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_62e2m")
+theme_override_font_sizes/font_size = 60
+text = "CarWash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="." unique_id=364280330]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 233.0
+offset_right = 718.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 50
+text = "Начать игру"
+
+[node name="Settings" type="Button" parent="." unique_id=1729515272]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 318.0
+offset_right = 719.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 50
+text = "Настройки"
