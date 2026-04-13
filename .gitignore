@@ -1,23 +1,23 @@
-# Godot 4+ specific ignores
+# Godot 4+ специфичные
 .godot/
-<<<<<<< HEAD
 .nomedia
+*.import
+*.tmp
+*.cfg.lock
+
+# Пользовательские данные (не коммитим)
 user://
+editor_settings.cfg
+
+# Скомпилированные файлы (если используете C#)
 *.dll
 *.exe
+*.pdb
+obj/
+bin/
+*.csproj
+*.sln
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_credentials.cfg
-
-# Imported translations (automatically generated from CSV files)
-*.translation
-
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
-=======
-/android/
->>>>>>> d9f0649 (initial commit)
+# Системные файлы
+.DS_Store
+Thumbs.db
