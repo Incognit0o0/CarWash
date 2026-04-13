@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-8be007314cd82f76ff71862e6f1c1e0cb3de7ea5
 .nomedia
 user://
 *.dll
@@ -19,6 +18,9 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
+# Android build artifacts
 /android/
-d9f0649 (initial commit)
-8be007314cd82f76ff71862e6f1c1e0cb3de7ea5
+
+# OS-specific junk files
+.DS_Store
+Thumbs.db
