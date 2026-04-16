@@ -7,6 +7,8 @@ extends Control
 
 signal startup_complete()
 
+#привет матвей
+
 func _ready() -> void:
 	visible = false
 	# Подписка на сигналы логики
