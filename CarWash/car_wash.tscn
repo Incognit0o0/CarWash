@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://q5o12tf7w4au"]
+
+[ext_resource type="Script" uid="uid://b55lhjcc3p63j" path="res://CarWash/car_wash.gd" id="1_18gac"]
+[ext_resource type="Script" uid="uid://dd7q5ctemflq8" path="res://CarWash/car_spawner.gd" id="2_18gac"]
+[ext_resource type="PackedScene" uid="uid://cukhr1awxi8b7" path="res://CarWash/floating_text.tscn" id="2_uxx7o"]
+[ext_resource type="Texture2D" uid="uid://v0du1nbjlhjh" path="res://Textures/foam.webp" id="4_6bcmj"]
+[ext_resource type="Texture2D" uid="uid://cj5axmjdasvwq" path="res://Textures/water.webp" id="5_elbuf"]
+[ext_resource type="Texture2D" uid="uid://s0u64q4gol0h" path="res://Textures/wind.png" id="6_5l1m8"]
+[ext_resource type="Texture2D" uid="uid://b3584ojmhbpr5" path="res://Textures/WashStation.png" id="6_6bcmj"]
+[ext_resource type="Texture2D" uid="uid://flwclytdpypq" path="res://Textures/WashStation_obrez.png" id="7_elbuf"]
+[ext_resource type="Texture2D" uid="uid://xyrvx1yx66mo" path="res://Textures/backgrounf.jpg" id="8_5l1m8"]
+[ext_resource type="PackedScene" uid="uid://ccc8a10024kwi" path="res://CarWash/player_hud.tscn" id="9_jouwm"]
+
+[sub_resource type="Curve2D" id="Curve2D_u5g0t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -296, 512, 0, 0, 0, 0, 128, 512, 0, 0, 0, 0, 544, 512, 0, 0, 0, 0, 1473, 514)
+}
+point_count = 4
+
+[node name="CarWash" type="Node2D" unique_id=1233074080 node_paths=PackedStringArray("ui_icons", "upgrade_buttons")]
+position = Vector2(-1, 0)
+script = ExtResource("1_18gac")
+ui_icons = [NodePath("UI/IconFoam"), NodePath("UI/IconWater"), NodePath("UI/IconDry")]
+upgrade_buttons = [NodePath("UI/BtnUpgradeFoam"), NodePath("UI/BtnUpgradeWater"), NodePath("UI/BtnUpgradeDry")]
+floating_text_scene = ExtResource("2_uxx7o")
+
+[node name="FloatingText" parent="." unique_id=1424319481 instance=ExtResource("2_uxx7o")]
+
+[node name="PlayerHUD" parent="." unique_id=1194960458 instance=ExtResource("9_jouwm")]
+
+[node name="CarSpawner" type="Node" parent="." unique_id=192540361 node_paths=PackedStringArray("car_wash")]
+script = ExtResource("2_18gac")
+spawn_interval = 2.0
+car_wash = NodePath("..")
+
+[node name="WashBox" type="Node2D" parent="." unique_id=1799562633]
+position = Vector2(-1, 0)
+
+[node name="UI" type="Node2D" parent="." unique_id=1567161182]
+
+[node name="IconFoam" type="TextureRect" parent="UI" unique_id=1434411416]
+offset_left = 208.0
+offset_top = 111.000015
+offset_right = 921.0
+offset_bottom = 461.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_6bcmj")
+
+[node name="IconWater" type="TextureRect" parent="UI" unique_id=673861512]
+offset_left = 493.0
+offset_top = 108.0
+offset_right = 1115.0
+offset_bottom = 458.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_elbuf")
+
+[node name="IconDry" type="TextureRect" parent="UI" unique_id=504017549]
+offset_left = 775.0
+offset_top = 89.0
+offset_right = 1287.0
+offset_bottom = 601.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_5l1m8")
+
+[node name="BtnUpgradeFoam" type="Button" parent="UI" unique_id=1987229377]
+offset_left = 204.0
+offset_top = 53.0
+offset_right = 428.0
+offset_bottom = 92.0
+text = "Улучшить Пену"
+
+[node name="BtnUpgradeWater" type="Button" parent="UI" unique_id=1139000605]
+offset_left = 494.0
+offset_top = 53.0
+offset_right = 671.0
+offset_bottom = 93.0
+text = "Улучшить Воду"
+
+[node name="BtnUpgradeDry" type="Button" parent="UI" unique_id=1961871841]
+offset_left = 762.0
+offset_top = 53.0
+offset_right = 937.0
+offset_bottom = 88.0
+text = "Улучшить Воздух"
+
+[node name="CarPath" type="Path2D" parent="." unique_id=1206509148]
+position = Vector2(0, -10)
+curve = SubResource("Curve2D_u5g0t")
+
+[node name="PathFollow" type="PathFollow2D" parent="CarPath" unique_id=2041770105]
+position = Vector2(-296, 512)
+loop = false
+
+[node name="Textures" type="Node2D" parent="." unique_id=883388999]
+
+[node name="Backgrounf" type="Sprite2D" parent="Textures" unique_id=78217258]
+z_index = -1
+position = Vector2(579.5, 326)
+scale = Vector2(1.8504823, 1.8571428)
+texture = ExtResource("8_5l1m8")
+
+[node name="BackgroundPhotoroom" type="Sprite2D" parent="Textures" unique_id=2131229565]
+position = Vector2(553, 402)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("6_6bcmj")
+
+[node name="BackgroundObrez" type="Sprite2D" parent="Textures" unique_id=326008832]
+z_index = 2
+position = Vector2(525.005, 402)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7_elbuf")
+
+[connection signal="pressed" from="UI/BtnUpgradeFoam" to="." method="_on_btn_upgrade_foam_pressed"]
+[connection signal="pressed" from="UI/BtnUpgradeWater" to="." method="_on_btn_upgrade_water_pressed"]
+[connection signal="pressed" from="UI/BtnUpgradeDry" to="." method="_on_btn_upgrade_dry_pressed"]

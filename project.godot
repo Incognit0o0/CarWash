@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://kqje3ynopc40"
+PlayerProgress="*uid://cs80cn0prdaev"
 
 [dotnet]
 

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccc8a10024kwi"]
+
+[ext_resource type="Script" uid="uid://ys7xijnu7njb" path="res://player_hud.gd" id="1_tvw2b"]
+
+[node name="PlayerHUD" type="CanvasLayer" unique_id=1194960458 node_paths=PackedStringArray("money_label", "level_label", "xp_bar")]
+script = ExtResource("1_tvw2b")
+money_label = NodePath("MoneyLabel")
+level_label = NodePath("LevelLabel")
+xp_bar = NodePath("XPBar")
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=2016424818]
+offset_left = 235.0
+offset_top = 1.0
+offset_right = 357.0
+offset_bottom = 24.0
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1103800433]
+offset_left = 549.0
+offset_top = 4.0
+offset_right = 669.0
+offset_bottom = 27.0
+
+[node name="XPBar" type="ProgressBar" parent="." unique_id=94722086]
+offset_left = 785.0
+offset_top = 2.0
+offset_right = 1031.0
+offset_bottom = 29.0
+show_percentage = false

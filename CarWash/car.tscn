@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cs0w4uc0dqejj"]
+
+[ext_resource type="Script" uid="uid://weuapbfyffj1" path="res://CarWash/car.gd" id="1_sgasg"]
+[ext_resource type="Texture2D" uid="uid://k1630jmmors2" path="res://Textures/Car1.png" id="2_iyl8p"]
+
+[node name="Car" type="Node2D" unique_id=633187358]
+position = Vector2(254, 254)
+script = ExtResource("1_sgasg")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=914309576]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iyl8p")
